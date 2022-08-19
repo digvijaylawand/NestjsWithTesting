@@ -7,10 +7,10 @@ export class CreateBookmarkDto {
 
     @IsString()
     @IsNotEmpty()
-    url: string;
+    query: string;
 
     @IsString()
     @IsOptional()
-    discription ?: string;
+    chartType?: string;
 
 }

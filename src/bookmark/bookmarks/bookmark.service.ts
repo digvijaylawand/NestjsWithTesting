@@ -17,7 +17,7 @@ export class BookmarkService {
 
     getBookmarkById(userId:number,bookmarkId:number) {}
 
-   async createBookmark(user,dto:CreateBookmarkDto) {
+   async createBookmark(user:any,dto:CreateBookmarkDto) {
         let userId:number = parseInt(user.id);
         const bookmark= await this.prisma.bookmark.create({
             data: {
@@ -71,5 +71,6 @@ export class BookmarkService {
         id: bookmarkId,
       },
     });
+    return "Deleted Successfully"
     }
 }

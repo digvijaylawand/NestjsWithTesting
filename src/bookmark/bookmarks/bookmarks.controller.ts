@@ -6,7 +6,7 @@ import { CreateBookmarkDto } from '../../dto/bookmark.dto';
 import { BookmarkService } from './bookmark.service';
 
 @UseGuards(JwtGuard)
-@Controller('bookmarks')
+@Controller('getChart')
 export class BookmarksController {
     constructor(private bookmarkService:BookmarkService) {}
 
@@ -21,7 +21,7 @@ export class BookmarksController {
     }
 
     @Post()
-    createBookmark(@GetUser() userId:number,@Body() dto : CreateBookmarkDto) {
+    createBookmark(@GetUser() userId:any,@Body() dto : CreateBookmarkDto) {
         return this.bookmarkService.createBookmark(userId,dto);
     }
 
@@ -30,7 +30,7 @@ export class BookmarksController {
         return this.bookmarkService.editBookmarkById(userId,bookmarkId,dto);
     }
 
-    @HttpCode(HttpStatus.NO_CONTENT)
+    @HttpCode(HttpStatus.OK)
     @Delete(':id')
     deleteBookmarkById(@GetUser() userId:number,@Param('id',ParseIntPipe) bookmarkId:number){
         return this.bookmarkService.deleteBookmarkById(userId,bookmarkId);

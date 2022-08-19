@@ -7,9 +7,9 @@ export class EditBookmarkDto {
 
     @IsString()
     @IsOptional()
-    url?: string;
+    query?: string;
 
     @IsString()
     @IsOptional()
-    discription?: string;
+    chartType?: string;
 }
